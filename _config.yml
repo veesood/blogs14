@@ -1,11 +1,11 @@
-title: Your Site Title
-email: your-email@example.com
+title: Care By Nurse
+email: info@carebynurse.com
 description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
 baseurl: "/blogv14" # Corrected: This should be your repository name.
-url: "https://veesood.github.io" # Corrected: This should be your GitHub Pages domain.
+url: "https://www.carebynurse.com # Corrected: This should be your GitHub Pages domain.
 theme: minima
 
 # Plugins
