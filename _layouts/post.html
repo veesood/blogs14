@@ -1,0 +1,161 @@
+---
+layout: default
+---
+
+<div class="blog-post-section">
+    <div class="site-wrapper">
+        <div class="blog-post-header">
+            <div class="site-content">
+                <p class="sub-heading">{{ page.date | date: "%B %d, %Y" }}</p>
+                <h1>{{ page.title }}</h1>
+                {% if page.author %}
+                <p class="post-author">By {{ page.author }}</p>
+                {% endif %}
+                {% if page.featured_image %}
+                <div class="post-featured-image">
+                    <img src="{{ site.baseurl }}{{ page.featured_image }}" alt="{{ page.title }}" />
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="blog-post-content">
+            <div class="site-content">
+                {{ content }}
+            </div>
+        </div>
+        
+        <div class="blog-post-footer">
+            <div class="site-content">
+                <div class="post-navigation">
+                    {% if page.previous %}
+                    <div class="prev-post">
+                        <a href="{{ site.baseurl }}{{ page.previous.url }}" class="link-btn">← Previous Post</a>
+                        <p>{{ page.previous.title }}</p>
+                    </div>
+                    {% endif %}
+                    
+                    {% if page.next %}
+                    <div class="next-post">
+                        <a href="{{ site.baseurl }}{{ page.next.url }}" class="link-btn">Next Post →</a>
+                        <p>{{ page.next.title }}</p>
+                    </div>
+                    {% endif %}
+                </div>
+                
+                <div class="back-to-blog">
+                    <a href="{{ site.baseurl }}/blog.html" class="link-btn">← Back to Blog</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.blog-post-section {
+    padding: 180px 0;
+    background: #f8f9fa;
+}
+
+.blog-post-header {
+    margin-bottom: 40px;
+}
+
+.blog-post-header h1 {
+    font-size: 2.5rem;
+    color: #2c3e50;
+    margin: 20px 0;
+    line-height: 1.2;
+}
+
+.post-author {
+    color: #7f8c8d;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.post-featured-image {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.post-featured-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.blog-post-content {
+    background: white;
+    padding: 60px 30px;
+    margin: 40px 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.blog-post-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: #34495e;
+}
+
+.blog-post-content h2 {
+    color: #2c3e50;
+    margin: 40px 0 20px 0;
+    font-size: 1.8rem;
+}
+
+.blog-post-content h3 {
+    color: #2c3e50;
+    margin: 30px 0 15px 0;
+    font-size: 1.4rem;
+}
+
+.blog-post-footer {
+    margin-top: 40px;
+}
+
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    gap: 20px;
+}
+
+.prev-post, .next-post {
+    flex: 1;
+}
+
+.next-post {
+    text-align: right;
+}
+
+.post-navigation p {
+    margin-top: 10px;
+    color: #7f8c8d;
+    font-size: 0.9rem;
+}
+
+.back-to-blog {
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #ecf0f1;
+}
+
+@media (max-width: 768px) {
+    .blog-post-header h1 {
+        font-size: 2rem;
+    }
+    
+    .post-navigation {
+        flex-direction: column;
+    }
+    
+    .next-post {
+        text-align: left;
+    }
+}
+</style>
+

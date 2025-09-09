@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>{{ page.title | default: site.title }}</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="{{ page.description | default: site.description }}" />
+    <meta name="author" content="" />
+    <link href="{{ site.baseurl }}/blog-image/favicon.ico" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="{{ site.baseurl }}/css/skin.css" type="text/css" media="all" />
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="main-header">
+            <div class="d-flex justify-space-between align-items-center  ">
+                <a class="site-logo" href="index.html">
+                    <img src="{{ site.baseurl }}/img/logo.svg" width="135" height="44" alt="" />
+                </a>
+                <div class="main-navigation">
+                    <div class="site-toggle">
+                        <i>MENU <span></span></i>
+                    </div>
+                    <div class="site-nav">
+                        <div class="nav-close">Close <img src="{{ site.baseurl }}/img/close-white.svg" width="18" height="18" alt="">
+                        </div>
+                        <ul>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/index.html">Home</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/about.html">About Us</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/services.html">Services</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/stories.html">Participant Stories</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/blog.html">Blog</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/referral.html">Referral</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/faq.html">FAQ's</a>
+                            </li>
+                            <li class="menu-item">
+                                <a href="{{ site.baseurl }}/contact.html">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="hdr-btn">
+                    <a href="https://carebynurseone.setmore.com" class="site-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    {{ content }}
+
+    <footer class="site-footer">
+        <div class="site-wrapper">
+            <div class="site-row">
+                <div class="site-col col-3">
+                    <div class="site-content">
+                        <a class="site-logo" href="index.html">
+                            <img src="{{ site.baseurl }}/img/logo.svg" width="135" height="44" alt="" />
+                        </a>
+                        <p>Empowering Independence, Enriching Lives</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link">
+                                <img src="{{ site.baseurl }}/img/facebook-icon.svg" width="24" height="24" alt="Facebook">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="{{ site.baseurl }}/img/instagram-icon.svg" width="24" height="24" alt="Instagram">
+                            </a>
+                            <a href="#" class="social-link">
+                                <img src="{{ site.baseurl }}/img/linkedin-icon.svg" width="24" height="24" alt="LinkedIn">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="site-col col-3">
+                    <div class="site-content">
+                        <h4>Quick Links</h4>
+                        <ul class="footer-links">
+                            <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+                            <li><a href="{{ site.baseurl }}/about.html">About Us</a></li>
+                            <li><a href="{{ site.baseurl }}/services.html">Services</a></li>
+                            <li><a href="{{ site.baseurl }}/stories.html">Participant Stories</a></li>
+                            <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
+                            <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-col col-3">
+                    <div class="site-content">
+                        <h4>Services</h4>
+                        <ul class="footer-links">
+                            <li><a href="#">Nursing Support</a></li>
+                            <li><a href="#">SIL Accommodation</a></li>
+                            <li><a href="#">Community Access</a></li>
+                            <li><a href="#">Therapy Services</a></li>
+                            <li><a href="#">Respite Care</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="site-col col-3">
+                    <div class="site-content">
+                        <h4>Contact Info</h4>
+                        <div class="contact-info">
+                            <p><img src="{{ site.baseurl }}/img/phone-icon.svg" width="16" height="16" alt=""> +61461597327</p>
+                            <p><img src="{{ site.baseurl }}/img/email-icon.svg" width="16" height="16" alt=""> info@carebynurse.com</p>
+                            <p><img src="{{ site.baseurl }}/img/location-icon.svg" width="16" height="16" alt=""> Melbourne, Australia</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Care By Nurse. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="{{ site.baseurl }}/js/script.js"></script>
+</body>
+
+</html>
+
