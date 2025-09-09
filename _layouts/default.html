@@ -8,49 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="{{ page.description | default: site.description }}" />
     <meta name="author" content="" />
-    <link href="{{ site.baseurl }}/blog-image/favicon.ico" rel="icon" type="image/x-icon">
-    <link rel="stylesheet" href="{{ site.baseurl }}/css/skin.css" type="text/css" media="all" />
+    <link href="{{ '/blog-image/favicon.ico' | relative_url }}" rel="icon" type="image/x-icon">
+    <link rel="stylesheet" href="{{ '/css/skin.css' | relative_url }}" type="text/css" media="all" />
 </head>
 
 <body>
     <header class="site-header">
         <div class="main-header">
             <div class="d-flex justify-space-between align-items-center  ">
-                <a class="site-logo" href="index.html">
-                    <img src="{{ site.baseurl }}/img/logo.svg" width="135" height="44" alt="" />
+                <a class="site-logo" href="{{ '/' | relative_url }}">
+                    <img src="{{ '/img/logo.svg' | relative_url }}" width="135" height="44" alt="{{ site.title }}" />
                 </a>
                 <div class="main-navigation">
                     <div class="site-toggle">
                         <i>MENU <span></span></i>
                     </div>
                     <div class="site-nav">
-                        <div class="nav-close">Close <img src="{{ site.baseurl }}/img/close-white.svg" width="18" height="18" alt="">
+                        <div class="nav-close">Close <img src="{{ '/img/close-white.svg' | relative_url }}" width="18" height="18" alt="Close menu">
                         </div>
                         <ul>
+                            {% assign navigation_pages = site.pages | where: "nav", true | sort: "nav_order" %}
+                            {% for nav_page in navigation_pages %}
                             <li class="menu-item">
-                                <a href="{{ site.baseurl }}/index.html">Home</a>
+                                <a href="{{ nav_page.url | relative_url }}" {% if page.url == nav_page.url %}class="active"{% endif %}>
+                                    {{ nav_page.nav_title | default: nav_page.title }}
+                                </a>
                             </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/about.html">About Us</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/services.html">Services</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/stories.html">Participant Stories</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/blog.html">Blog</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/referral.html">Referral</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/faq.html">FAQ's</a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="{{ site.baseurl }}/contact.html">Contact</a>
-                            </li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -68,19 +52,19 @@
             <div class="site-row">
                 <div class="site-col col-3">
                     <div class="site-content">
-                        <a class="site-logo" href="index.html">
-                            <img src="{{ site.baseurl }}/img/logo.svg" width="135" height="44" alt="" />
+                        <a class="site-logo" href="{{ '/' | relative_url }}">
+                            <img src="{{ '/img/logo.svg' | relative_url }}" width="135" height="44" alt="{{ site.title }}" />
                         </a>
                         <p>Empowering Independence, Enriching Lives</p>
                         <div class="social-links">
                             <a href="#" class="social-link">
-                                <img src="{{ site.baseurl }}/img/facebook-icon.svg" width="24" height="24" alt="Facebook">
+                                <img src="{{ '/img/facebook-icon.svg' | relative_url }}" width="24" height="24" alt="Facebook">
                             </a>
                             <a href="#" class="social-link">
-                                <img src="{{ site.baseurl }}/img/instagram-icon.svg" width="24" height="24" alt="Instagram">
+                                <img src="{{ '/img/instagram-icon.svg' | relative_url }}" width="24" height="24" alt="Instagram">
                             </a>
                             <a href="#" class="social-link">
-                                <img src="{{ site.baseurl }}/img/linkedin-icon.svg" width="24" height="24" alt="LinkedIn">
+                                <img src="{{ '/img/linkedin-icon.svg' | relative_url }}" width="24" height="24" alt="LinkedIn">
                             </a>
                         </div>
                     </div>
@@ -89,12 +73,12 @@
                     <div class="site-content">
                         <h4>Quick Links</h4>
                         <ul class="footer-links">
-                            <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
-                            <li><a href="{{ site.baseurl }}/about.html">About Us</a></li>
-                            <li><a href="{{ site.baseurl }}/services.html">Services</a></li>
-                            <li><a href="{{ site.baseurl }}/stories.html">Participant Stories</a></li>
-                            <li><a href="{{ site.baseurl }}/blog.html">Blog</a></li>
-                            <li><a href="{{ site.baseurl }}/contact.html">Contact</a></li>
+                            <li><a href="{{ '/' | relative_url }}">Home</a></li>
+                            <li><a href="{{ '/about.html' | relative_url }}">About Us</a></li>
+                            <li><a href="{{ '/services.html' | relative_url }}">Services</a></li>
+                            <li><a href="{{ '/stories.html' | relative_url }}">Participant Stories</a></li>
+                            <li><a href="{{ '/blog.html' | relative_url }}">Blog</a></li>
+                            <li><a href="{{ '/contact.html' | relative_url }}">Contact</a></li>
                         </ul>
                     </div>
                 </div>
@@ -102,11 +86,9 @@
                     <div class="site-content">
                         <h4>Services</h4>
                         <ul class="footer-links">
-                            <li><a href="#">Nursing Support</a></li>
-                            <li><a href="#">SIL Accommodation</a></li>
-                            <li><a href="#">Community Access</a></li>
-                            <li><a href="#">Therapy Services</a></li>
-                            <li><a href="#">Respite Care</a></li>
+                            {% for service in site.services %}
+                            <li><a href="{{ service.url | relative_url }}">{{ service.title }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -114,21 +96,20 @@
                     <div class="site-content">
                         <h4>Contact Info</h4>
                         <div class="contact-info">
-                            <p><img src="{{ site.baseurl }}/img/phone-icon.svg" width="16" height="16" alt=""> +61461597327</p>
-                            <p><img src="{{ site.baseurl }}/img/email-icon.svg" width="16" height="16" alt=""> info@carebynurse.com</p>
-                            <p><img src="{{ site.baseurl }}/img/location-icon.svg" width="16" height="16" alt=""> Melbourne, Australia</p>
+                            <p><img src="{{ '/img/phone-icon.svg' | relative_url }}" width="16" height="16" alt=""> +61461597327</p>
+                            <p><img src="{{ '/img/email-icon.svg' | relative_url }}" width="16" height="16" alt=""> info@carebynurse.com</p>
+                            <p><img src="{{ '/img/location-icon.svg' | relative_url }}" width="16" height="16" alt=""> Melbourne, Australia</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Care By Nurse. All rights reserved.</p>
+                <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <script src="{{ site.baseurl }}/js/script.js"></script>
+    <script src="{{ '/js/script.js' | relative_url }}"></script>
 </body>
 
 </html>
-
